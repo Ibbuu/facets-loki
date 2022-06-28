@@ -23,7 +23,7 @@
     }
   ],
   "build": {
-    "ci": "killbill/killbill:0.22.26",
+    "ci": "external_image",
     "external_image": "killbill/killbill:0.22.26"
   },
   "credentialRequests": {
