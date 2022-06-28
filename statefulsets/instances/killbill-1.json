@@ -24,7 +24,7 @@
   ],
   "build": {
     "ci": "external_image",
-    "external_image": "killbill/killbill:0.22.26"
+    "external_image": "ibbuu/killbill:1"
   },
   "credentialRequests": {
     "dbs": {
@@ -70,7 +70,7 @@
   "persistentVolumeClaims" : [
     {
       "name": "plugins",
-      "mountPath": "var/lib/killbill",
+      "mountPath": "var",
       "accessMode": "ReadWriteOnce",
       "storageSize": "5"
     }
