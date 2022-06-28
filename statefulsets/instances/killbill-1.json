@@ -24,7 +24,7 @@
   ],
   "build": {
     "ci": "external_image",
-    "external_image": "ibbuu/killbill:3"
+    "external_image": "ibbuu/killbill:4"
   },
   "credentialRequests": {
     "dbs": {
