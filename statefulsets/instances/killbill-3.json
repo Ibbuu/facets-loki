@@ -70,7 +70,7 @@
   "persistentVolumeClaims" : [
     {
       "name": "plugins",
-      "mountPath": "/var/lib/killbill",
+      "mountPath": "/var",
       "accessMode": "ReadWriteOnce",
       "storageSize": "5"
     }
