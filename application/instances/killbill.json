@@ -15,7 +15,7 @@
       },
       "KILLBILL_DAO_URL": {
         "type": "static",
-        "default": "jdbc:postgresql://db:5432/killbill?currentSchema=killbillschema"
+        "default": "jdbc:postgresql://killbill-db1-writer:5432/killbill?currentSchema=killbillschema"
       },
       "KILLBILL_DAO_USER": {
         "type": "dynamic",
@@ -26,12 +26,6 @@
     },
     "loadbalancing": {
       "rules": [
-        {
-          "ingress": "ingress",
-          "path": "/",
-          "portName": "port8080",
-          "domainPrefix": "killbill"
-        }
       ]
     },
     "permission": [
