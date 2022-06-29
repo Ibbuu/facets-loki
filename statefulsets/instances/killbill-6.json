@@ -24,7 +24,7 @@
   ],
   "build": {
     "ci": "external_image",
-    "external_image": "ibbuu/killbill:5"
+    "external_image": "killbill/killbill:0.22.26"
   },
   "credentialRequests": {
     "dbs": {
@@ -63,7 +63,7 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-5."
+      "domainPrefix": "killbill-6."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
@@ -75,5 +75,6 @@
       "storageSize": "5"
     }
   ],
-  "mountLogsVolume": false
+  "mountLogsVolume": false,
+  "command": ["/bin/bash","-c","ln -sf /var/lib/killbill/bundles /mnt/var/lib/killbill/;/var/lib/killbill/killbill.sh"]
 }
