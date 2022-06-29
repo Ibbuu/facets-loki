@@ -64,7 +64,7 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-10."
+      "domainPrefix": "killbill-11."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
