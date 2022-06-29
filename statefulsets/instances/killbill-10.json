@@ -9,7 +9,7 @@
     "hpaEnabled": false,
     "hpaMinReplicas": 1,
     "hpaMaxReplicas": 1,
-    "hpaMetricThreshold": 60
+    "hpaMetricThreshold": 80
   },
   "liveness": {
   },
