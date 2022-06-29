@@ -76,6 +76,6 @@
       "storageSize": "5"
     }
   ],
-  "mountLogsVolume": false
-  
+  "mountLogsVolume": false,
+  "command": ["/bin/bash","-c","sudo sed -i 's|/var/lib/killbill/bundles|/mnt/var/lib/killbill/bundles|' /var/lib/killbill/killbill.properties;/var/lib/killbill/killbill.sh"]
 }
