@@ -41,7 +41,8 @@
   },
   "environmentVariables": {
     "static": {
-      "KILLBILL_DAO_URL": "jdbc:postgresql://killbill-db1-writer:5432/killbill?currentSchema=killbillschema"
+      "KILLBILL_DAO_URL": "jdbc:postgresql://killbill-db1-writer:5432/killbill?currentSchema=killbillschema",
+      "KB_org_killbill_osgi_bundle_install_dir": "/mnt/var/lib/killbill/bundles" 
     },
     "dynamic": {
         "KILLBILL_DAO_PASSWORD": {
@@ -63,18 +64,18 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-9."
+      "domainPrefix": "killbill-10."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
   "persistentVolumeClaims" : [
     {
       "name": "plugins",
-      "mountPath": "var/lib/killbill/bundles/plugins",
+      "mountPath": "var/lib/killbill/bundles",
       "accessMode": "ReadWriteOnce",
       "storageSize": "5"
     }
   ],
-  "mountLogsVolume": false,
-  "command": ["/bin/bash","-c","sudo ln -sf /mnt/var/lib/killbill/bundles/plugins /var/lib/killbill/bundles;/var/lib/killbill/killbill.sh"]
+  "mountLogsVolume": false
+  
 }
