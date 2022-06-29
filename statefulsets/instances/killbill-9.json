@@ -63,7 +63,7 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-8."
+      "domainPrefix": "killbill-9."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
@@ -76,5 +76,5 @@
     }
   ],
   "mountLogsVolume": false,
-  "command": ["/bin/bash","-c","sudo ln -sf /var/lib/killbill/bundles /mnt/var/lib/killbill/;/var/lib/killbill/killbill.sh"]
+  "command": ["/bin/bash","-c","sudo ln -sf /mnt/var/lib/killbill/bundles/plugins /var/lib/killbill/bundles;/var/lib/killbill/killbill.sh"]
 }
