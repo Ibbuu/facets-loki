@@ -63,14 +63,14 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-6."
+      "domainPrefix": "killbill-7."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
   "persistentVolumeClaims" : [
     {
       "name": "plugins",
-      "mountPath": "var",
+      "mountPath": "var/lib/killbill",
       "accessMode": "ReadWriteOnce",
       "storageSize": "5"
     }
