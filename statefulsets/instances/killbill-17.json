@@ -64,7 +64,7 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-16."
+      "domainPrefix": "killbill-17."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
@@ -76,7 +76,6 @@
       "storageSize": "50"
     }
   ],
-  "mountLogsVolume": false,
-  "command": [ "/bin/bash", "-c", "sleep 1000000" ]
+  "mountLogsVolume": false
   
 }
