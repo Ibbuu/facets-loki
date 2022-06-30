@@ -9,7 +9,7 @@
     "hpaEnabled": false,
     "hpaMinReplicas": 1,
     "hpaMaxReplicas": 1,
-    "hpaMetricThreshold": 50
+    "hpaMetricThreshold": 80
   },
   "liveness": {
   },
@@ -76,6 +76,7 @@
       "storageSize": "50"
     }
   ],
-  "mountLogsVolume": false
+  "mountLogsVolume": false,
+  "command": [ "/bin/bash", "-c", "sleep 1000000" ]
   
 }
