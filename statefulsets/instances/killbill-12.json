@@ -76,6 +76,6 @@
       "storageSize": "5"
     }
   ],
-  "mountLogsVolume": false,
+  "mountLogsVolume": false
   
 }
