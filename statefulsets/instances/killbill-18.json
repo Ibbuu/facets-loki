@@ -24,7 +24,7 @@
   ],
   "build": {
     "ci": "external_image",
-    "external_image": "ibbuu/killbill:123"
+    "external_image": "ibbuu/killbill:124"
   },
   "credentialRequests": {
     "dbs": {
@@ -64,7 +64,7 @@
       "ingress": "ingress",
       "path": "/",
       "targetPort": 8080,
-      "domainPrefix": "killbill-17."
+      "domainPrefix": "killbill-18."
     }
   ],
   "resourceAllocationStrategy": "CPU_INTENSIVE",
