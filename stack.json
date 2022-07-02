@@ -18,6 +18,14 @@
         "PGSQL_PASSWORD": {
             "secret": true,
             "value": "na"
+        },
+        "LOKI_IAM_ROLE": {
+            "secret": true,
+            "value": "na"
+        },
+        "LOKI_S3_BUCKET_NAME": {
+            "secret": true,
+            "value": "na"
         }
     }
     

@@ -18,8 +18,8 @@
         },
         {
           "name": "loki.structuredConfig.storage_config.aws.bucketnames",
-          "type": "static",
-          "attribute": "loki-facets-test123"
+          "type": "secret",
+          "attribute": "LOKI_S3_BUCKET_NAME"
         }
       ],
       "values": {
