@@ -1,14 +1,150 @@
 {
     "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "disabled": false,
     "flavor": "helm_simple",
     "spec": {
-        "helm": {
-            "chart": "loki-stack",
-            "repository": "https://grafana.github.io/helm-charts",
-            "wait": false
+      "helm": {
+        "chart": "loki-distributed",
+        "repository": "https://grafana.github.io/helm-charts",
+        "wait": true,
+        "namespace": "loki",
+        "recreate_pods" : false
+      },
+      "env": [
+        {
+          "name": "loki.podAnnotations.iam\\.amazonaws\\.com/role",
+          "type": "secret",
+          "attribute": "LOKI_IAM_ROLE"
         },
-        "env": []
-
+        {
+          "name": "loki.structuredConfig.storage_config.aws.bucketnames",
+          "type": "secret",
+          "attribute": "LOKI_S3_BUCKET_NAME"
+        }
+      ],
+      "values": {
+        "loki": {
+          "structuredConfig": {
+            "ingester": {
+              "max_transfer_retries": 0,
+              "chunk_idle_period": "1h",
+              "chunk_target_size": 1536000,
+              "max_chunk_age": "1h"
+            },
+            "storage_config": {
+              "aws": {
+                "s3": "s3://us-east-1"
+              },
+              "boltdb_shipper": {
+                "shared_store": "s3"
+              }
+            },
+            "schema_config": {
+              "configs": [
+                {
+                  "from": "2022-05-24",
+                  "store": "boltdb-shipper",
+                  "object_store": "aws",
+                  "schema": "v11",
+                  "index": {
+                    "prefix": "loki_index_",
+                    "period": "24h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ingester": {
+          "replicas": 3,
+          "extraEnv": [
+            {
+              "name": "MY_POD_IP",
+              "valueFrom": {
+                "fieldRef": {
+                  "fieldPath": "status.podIP"
+                }
+              }
+            }
+          ],
+          "extraArgs": [
+            "-memberlist.bind-addr=$(MY_POD_IP)"
+          ]
+        },
+        "distributor": {
+          "replicas": 1,
+          "autoscaling": {
+            "enabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 5,
+            "targetCPUUtilizationPercentage": 60,
+            "targetMemoryUtilizationPercentage": 80
+          },
+          "extraEnv": [
+            {
+              "name": "MY_POD_IP",
+              "valueFrom": {
+                "fieldRef": {
+                  "fieldPath": "status.podIP"
+                }
+              }
+            }
+          ],
+          "extraArgs": [
+            "-memberlist.bind-addr=$(MY_POD_IP)"
+          ]
+        },
+        "querier": {
+          "replicas": 2,
+          "autoscaling": {
+            "enabled": true,
+            "minReplicas": 2,
+            "maxReplicas": 10,
+            "targetCPUUtilizationPercentage": 60,
+            "targetMemoryUtilizationPercentage": 80
+          },
+          "extraEnv": [
+            {
+              "name": "MY_POD_IP",
+              "valueFrom": {
+                "fieldRef": {
+                  "fieldPath": "status.podIP"
+                }
+              }
+            }
+          ],
+          "extraArgs": [
+            "-memberlist.bind-addr=$(MY_POD_IP)"
+          ]
+        },
+        "queryFrontend": {
+          "replicas": 1,
+          "autoscaling": {
+            "enabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 5,
+            "targetCPUUtilizationPercentage": 60,
+            "targetMemoryUtilizationPercentage": 80
+          }
+        },
+        "compactor": {
+          "enabled": true,
+          "working_directory": "/loki/compactor",
+          "shared_store": "aws",
+          "extraEnv": [
+            {
+              "name": "MY_POD_IP",
+              "valueFrom": {
+                "fieldRef": {
+                  "fieldPath": "status.podIP"
+                }
+              }
+            }
+          ],
+          "extraArgs": [
+            "-memberlist.bind-addr=$(MY_POD_IP)"
+          ]
+        }
+      }
     }
-
-}
+  }
