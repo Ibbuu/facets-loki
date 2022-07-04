@@ -6,7 +6,7 @@
   "secretFileMounts": [],
   "protocolGroup": "tcp",
   "scaling": {
-    "hpaEnabled": false,
+    "hpaEnabled": true,
     "hpaMinReplicas": 2,
     "hpaMaxReplicas": 4,
     "hpaMetricThreshold": 10
