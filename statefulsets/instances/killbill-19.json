@@ -7,8 +7,8 @@
   "protocolGroup": "tcp",
   "scaling": {
     "hpaEnabled": true,
-    "hpaMinReplicas": 1,
-    "hpaMaxReplicas": 3,
+    "hpaMinReplicas": 2,
+    "hpaMaxReplicas": 4,
     "hpaMetricThreshold": 10
   },
   "liveness": {
