@@ -73,7 +73,7 @@
       "name": "plugins",
       "mountPath": "var",
       "accessMode": "ReadWriteOnce",
-      "storageSize": "50"
+      "storageSize": "51"
     }
   ],
   "mountLogsVolume": false
