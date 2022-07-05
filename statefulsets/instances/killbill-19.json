@@ -5,12 +5,7 @@
   "elbIdleTimeoutSeconds": 300,
   "secretFileMounts": [],
   "protocolGroup": "tcp",
-  "scaling": {
-    "hpaEnabled": true,
-    "hpaMinReplicas": 2,
-    "hpaMaxReplicas": 4,
-    "hpaMetricThreshold": 10
-  },
+  "replicaCount": 3,
   "liveness": {
   },
   "readiness": {
@@ -73,7 +68,7 @@
       "name": "plugins",
       "mountPath": "var",
       "accessMode": "ReadWriteOnce",
-      "storageSize": "51"
+      "storageSize": "50"
     }
   ],
   "mountLogsVolume": false
