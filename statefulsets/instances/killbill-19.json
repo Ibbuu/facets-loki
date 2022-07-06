@@ -5,7 +5,7 @@
   "elbIdleTimeoutSeconds": 300,
   "secretFileMounts": [],
   "protocolGroup": "tcp",
-  "replicaCount": 3,
+  "replicaCount": 2,
   "liveness": {
   },
   "readiness": {
