@@ -2,7 +2,7 @@
   "size": "SMALL",
   "deploymentStrategy": "Recreate",
   "lbType": "internal",
-  "elbIdleTimeoutSeconds": 400,
+  "elbIdleTimeoutSeconds": 500,
   "secretFileMounts": [],
   "protocolGroup": "tcp",
   "replicaCount": 1,
