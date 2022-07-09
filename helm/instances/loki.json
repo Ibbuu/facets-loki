@@ -10,18 +10,7 @@
         "namespace": "loki",
         "recreate_pods" : true
       },
-      "env": [
-        {
-          "name": "loki.podAnnotations.iam\\.amazonaws\\.com/role",
-          "type": "secret",
-          "attribute": "LOKI_IAM_ROLE"
-        },
-        {
-          "name": "loki.structuredConfig.storage_config.aws.bucketnames",
-          "type": "secret",
-          "attribute": "LOKI_S3_BUCKET_NAME"
-        }
-      ],
+      "env": [],
       "values": {
         "loki": {
           "structuredConfig": {
@@ -32,11 +21,8 @@
               "max_chunk_age": "1h"
             },
             "storage_config": {
-              "aws": {
-                "s3": "s3://us-east-1"
-              },
               "boltdb_shipper": {
-                "shared_store": "s3"
+                "shared_store": "filesystem"
               }
             },
             "schema_config": {
@@ -44,7 +30,7 @@
                 {
                   "from": "2022-05-24",
                   "store": "boltdb-shipper",
-                  "object_store": "aws",
+                  "object_store": "filesystem",
                   "schema": "v11",
                   "index": {
                     "prefix": "loki_index_",
@@ -57,6 +43,10 @@
         },
         "ingester": {
           "replicas": 3,
+          "persistence":{
+              "enabled": true,
+              "size": "10Gi"
+          },
           "extraEnv": [
             {
               "name": "MY_POD_IP",
@@ -73,6 +63,10 @@
         },
         "distributor": {
           "replicas": 1,
+          "persistence":{
+            "enabled": true,
+            "size": "10Gi"
+        },
           "autoscaling": {
             "enabled": true,
             "minReplicas": 1,
@@ -96,6 +90,10 @@
         },
         "querier": {
           "replicas": 2,
+          "persistence":{
+            "enabled": true,
+            "size": "10Gi"
+        },
           "autoscaling": {
             "enabled": true,
             "minReplicas": 2,
@@ -119,6 +117,10 @@
         },
         "queryFrontend": {
           "replicas": 1,
+          "persistence":{
+            "enabled": true,
+            "size": "10Gi"
+        },
           "autoscaling": {
             "enabled": true,
             "minReplicas": 1,
@@ -129,8 +131,12 @@
         },
         "compactor": {
           "enabled": true,
+          "persistence":{
+            "enabled": true,
+            "size": "10Gi"
+        },
           "working_directory": "/loki/compactor",
-          "shared_store": "aws",
+          "shared_store": "filesystem",
           "extraEnv": [
             {
               "name": "MY_POD_IP",
