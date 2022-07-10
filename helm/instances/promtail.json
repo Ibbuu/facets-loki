@@ -1,0 +1,24 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "disabled": false,
+    "flavor": "helm_simple",
+    "spec": {
+      "helm": {
+        "chart": "promtail",
+        "repository": "https://grafana.github.io/helm-charts",
+        "wait": true,
+        "namespace": "loki",
+        "recreate_pods" : true
+      },
+      "env": [],
+      "values": {
+        "config": {
+            "clients": [
+                {
+                  "url": "http://loki-loki-distributed-gateway/loki/api/v1/push"
+                }
+              ]
+        }
+      }
+}
+}
