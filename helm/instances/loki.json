@@ -129,6 +129,10 @@
             "targetMemoryUtilizationPercentage": 80
           }
         },
+        "gateway":{
+            "enabled": true,
+            "replicas": 1
+        },
         "compactor": {
           "enabled": true,
           "persistence":{
