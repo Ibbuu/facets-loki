@@ -131,7 +131,7 @@
         },
         "gateway":{
             "enabled": true,
-            "replicas": 1
+            "replicas": 2
         },
         "compactor": {
           "enabled": true,
