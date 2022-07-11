@@ -1,0 +1,69 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "disabled": false,
+    "flavor": "helm_simple",
+    "spec": {
+      "helm": {
+        "chart": "retool",
+        "repository": "https://charts.retool.com",
+        "wait": true,
+        "namespace": "retool",
+        "recreate_pods" : true
+      },
+      "env": [
+        {
+            "name": "config.licenseKey",
+            "type": "secret",
+            "attribute": "RETOOL_LICENSE_KEY"
+        },
+        {
+            "name": "config.encryptionKey",
+            "type": "static",
+            "default": "RETOOLENCRYPTIONKEY"
+        },
+        {
+            "name": "config.jwtSecret",
+            "type": "static",
+            "default": "RETOOLJWTSECRETKEY"
+        },
+        {
+            "name": "postgresql.enabled",
+            "type": "static",
+            "default": "false"
+        },
+        {
+            "name": "persistentVolumeClaim.enabled",
+            "type": "static",
+            "default": "true"
+        },
+        {
+            "name": "config.postgresql.host",
+            "type": "static",
+            "default": "killbill-db1-writer"
+        },
+        {
+            "name": "config.postgresql.db",
+            "type": "static",
+            "default": "test"
+        },
+        {
+            "name": "config.postgresql.port",
+            "type": "static",
+            "default": "5432"
+        },
+        {
+            "name": "config.postgresql.user",
+            "type": "secret",
+            "attribute": "PGSQL_USER"
+        },
+        {
+            "name": "config.postgresql.password",
+            "type": "secret",
+            "attribute": "PGSQL_PASSWORD"
+        }
+
+
+        
+      ]
+}
+}

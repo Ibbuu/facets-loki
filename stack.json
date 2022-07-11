@@ -26,6 +26,10 @@
         "LOKI_S3_BUCKET_NAME": {
             "secret": true,
             "value": "na"
+        },
+        "RETOOL_LICENSE_KEY": {
+            "secret": true,
+            "value": "na"
         }
     }
     
