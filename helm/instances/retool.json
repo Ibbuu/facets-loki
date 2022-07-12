@@ -10,8 +10,13 @@
         "namespace": "retool",
         "recreate_pods" : true
       },
-      
+
       "env": [
+        {
+            "name": "ingress.defaultBackend",
+            "type": "static",
+            "default": "retool"
+        },
         {
             "name": "image.tag",
             "type": "static",
