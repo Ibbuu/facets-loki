@@ -67,7 +67,6 @@
             "attribute": "PGSQL_PASSWORD"
         }
     ],
-
     "values":{
         "ingress": {
             "hosts": [
