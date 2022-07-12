@@ -72,7 +72,7 @@
             "hosts": [
                 {"host" : "retool.ingress-6295b8399d413a0001c3457e.console.facets.cloud",
                 "paths": {
-                    "path": "/"
+                    "path": ["/"]
                 }}]
         }
     }
