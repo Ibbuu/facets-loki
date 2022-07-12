@@ -18,6 +18,11 @@
             "default": "retool.ingress-6295b8399d413a0001c3457e.console.facets.cloud"
         },
         {
+            "name": "ingress.hosts.paths.path",
+            "type": "static",
+            "default": "/"
+        },
+        {
             "name": "ingress.defaultBackend",
             "type": "static",
             "default": "retool"
