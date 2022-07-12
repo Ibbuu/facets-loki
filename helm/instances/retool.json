@@ -7,7 +7,7 @@
         "chart": "retool",
         "repository": "https://charts.retool.com",
         "wait": true,
-        "namespace": "retool",
+        "namespace": "default",
         "recreate_pods" : true
       },
       "env": [
