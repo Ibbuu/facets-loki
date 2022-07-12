@@ -15,7 +15,7 @@
         {
             "name": "ingress.hosts.host",
             "type": "static",
-            "default": "retool.ingress-6295b8399d413a0001c3457e.console.facets.cloud"
+            "default": "retool.example.com"
         },
         {
             "name": "ingress.hosts.paths.path",
