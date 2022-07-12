@@ -10,8 +10,13 @@
         "namespace": "retool",
         "recreate_pods" : true
       },
-      
+
       "env": [
+        {
+            "name": "ingress.hosts.host",
+            "type": "static",
+            "default": "retool.ingress-6295b8399d413a0001c3457e.console.facets.cloud"
+        },
         {
             "name": "ingress.defaultBackend",
             "type": "static",
