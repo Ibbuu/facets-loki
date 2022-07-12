@@ -12,6 +12,11 @@
       },
       "env": [
         {
+            "name": "image.tag",
+            "type": "static",
+            "default": "latest"
+        },
+        {
             "name": "config.licenseKey",
             "type": "secret",
             "attribute": "RETOOL_LICENSE_KEY"
