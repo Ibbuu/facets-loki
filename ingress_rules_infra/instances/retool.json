@@ -2,5 +2,6 @@
     "path": "/",
     "targetPort": 3000,
     "k8s_service": "retool",
-    "ingress": "ingress"
+    "ingress": "ingress",
+    "domainPrefix": "retool"
   }
