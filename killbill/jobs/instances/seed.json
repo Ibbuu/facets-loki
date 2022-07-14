@@ -23,16 +23,6 @@
                 "attribute": "PGSQL_USER"
               }
         },
-        "permission": [
-            {
-                "name": "killbill-permissions",
-                "resourceType": "mysql",
-                "resourceName": "killbill-db",
-                "permission": "MANAGEMENT"
-
-                
-            }
-        ],
         "release": {
             "build": {
                 "image": "ibbuu/killbill-postgres:21"

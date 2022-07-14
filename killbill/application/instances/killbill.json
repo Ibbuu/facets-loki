@@ -28,15 +28,6 @@
       "rules": [
       ]
     },
-    "permission": [
-      {
-          "name": "killbill-permissions",
-          "resourceType": "mysql",
-          "resourceName": "killbill-db",
-          "permission": "READ_WRITE"
-      }
-
-    ],
     "release": {
       "strategy": "RollingUpdate",
       "build": {
