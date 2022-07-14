@@ -1,0 +1,38 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/stack.schema",
+    "componentVersions": {
+        "KUBERNETES": "1.19"
+    },
+    "composition": {
+        "plugins": [
+            {
+            "name": "logging_nfs"
+            }
+        ]
+    },
+    "clusterVariablesMeta": {
+        "PGSQL_USER": {
+            "secret": true,
+            "value": "na"
+        },
+        "PGSQL_PASSWORD": {
+            "secret": true,
+            "value": "na"
+        },
+        "LOKI_IAM_ROLE": {
+            "secret": true,
+            "value": "na"
+        },
+        "LOKI_S3_BUCKET_NAME": {
+            "secret": true,
+            "value": "na"
+        },
+        "RETOOL_LICENSE_KEY": {
+            "secret": true,
+            "value": "na"
+        }
+    }
+    
+
+
+}
