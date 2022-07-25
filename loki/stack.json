@@ -3,13 +3,6 @@
     "componentVersions": {
         "KUBERNETES": "1.19"
     },
-    "composition": {
-        "plugins": [
-            {
-            "name": "logging_nfs"
-            }
-        ]
-    },
     "clusterVariablesMeta": {
         "PGSQL_USER": {
             "secret": true,
