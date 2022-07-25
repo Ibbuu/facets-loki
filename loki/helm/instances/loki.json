@@ -42,7 +42,7 @@
           }
         },
         "ingester": {
-          "replicas": 3,
+          "replicas": 2,
           "persistence":{
               "enabled": true,
               "size": "10Gi"
