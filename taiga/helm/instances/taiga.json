@@ -4,7 +4,7 @@
     "flavor": "helm_simple",
     "spec": {
       "helm": {
-        "chart": "mvitale1989-helm-taiga/helm-taiga",
+        "chart": "helm-taiga",
         "repository": "https://mvitale1989.github.io/helm-taiga",
         "wait": true,
         "namespace": "default",
