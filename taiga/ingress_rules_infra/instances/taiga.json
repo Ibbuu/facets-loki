@@ -1,0 +1,7 @@
+{
+    "path": "/",
+    "targetPort": 8080,
+    "k8s_service": "taiga",
+    "ingress": "ingress",
+    "domainPrefix": "taiga"
+  }

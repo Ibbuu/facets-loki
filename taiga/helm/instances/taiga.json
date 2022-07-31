@@ -1,0 +1,52 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "disabled": false,
+    "flavor": "helm_simple",
+    "spec": {
+      "helm": {
+        "chart": "mvitale1989-helm-taiga/helm-taiga",
+        "repository": "https://mvitale1989.github.io/helm-taiga",
+        "wait": true,
+        "namespace": "default",
+        "recreate_pods" : true
+      },
+      "permission": [
+        {
+            "name": "killbill-permissions",
+            "resourceType": "postgres",
+            "resourceName": "killbill-db",
+            "permission": "MANAGEMENT"
+        }
+    ],
+      "env": [
+        {
+            "name": "taiga.dbHost",
+            "type": "static",
+            "default": "killbill-db-writer"
+        },
+        {
+            "name": "taiga.dbName",
+            "type": "static",
+            "default": "taiga"
+        },
+        {
+            "name": "taiga.dbUser",
+            "type": "credential",
+            "permissionName": "killbill-permissions",
+            "attribute": "userName"
+        },
+        {
+            "name": "taiga.dbPassword",
+            "type": "credential",
+            "permissionName": "killbill-permissions",
+            "attribute": "password"
+        }
+    ],
+    "values": {
+        "persistence": {
+            "deployPostgres": false
+
+        }
+    }
+}
+}
