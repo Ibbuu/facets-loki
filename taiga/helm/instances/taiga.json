@@ -45,7 +45,8 @@
     "values": {
         "persistence": {
             "deployPostgres": false,
-            "existingClaim": false
+            "existingClaim": false,
+            "enabled": false
 
         }
     }
