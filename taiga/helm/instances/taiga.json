@@ -54,6 +54,18 @@
             "mediaData": {
                 "enabled": true
             }
+        },
+        "taigaBack": {
+            "image": {
+                "repository": "ibbuu/taiga-back",
+                "tag": "latest"
+            }
+        },
+        "taigaProtected": {
+            "image": {
+                "repository": "ibbuu/taiga-protected",
+                "tag": "latest"
+            }
         }
     }
 }
