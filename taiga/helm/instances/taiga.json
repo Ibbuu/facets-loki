@@ -4,8 +4,8 @@
     "flavor": "helm_simple",
     "spec": {
       "helm": {
-        "chart": "helm-taiga",
-        "repository": "https://mvitale1989.github.io/helm-taiga",
+        "chart": "taiga",
+        "repository": "https://rodolfojcj.github.io/rc-helm-charts",
         "wait": true,
         "namespace": "default",
         "recreate_pods" : true
@@ -20,34 +20,40 @@
     ],
       "env": [
         {
-            "name": "taiga.dbHost",
+            "name": "externalDatabase.host",
             "type": "static",
             "default": "killbill-db-writer"
         },
         {
-            "name": "taiga.dbName",
+            "name": "externalDatabase.database",
             "type": "static",
             "default": "taiga"
         },
         {
-            "name": "taiga.dbUser",
+            "name": "externalDatabase.user",
             "type": "credential",
             "permissionName": "killbill-permissions",
             "attribute": "userName"
         },
         {
-            "name": "taiga.dbPassword",
+            "name": "externalDatabase.password",
             "type": "credential",
             "permissionName": "killbill-permissions",
             "attribute": "password"
         }
     ],
     "values": {
-        "persistence": {
-            "deployPostgres": false,
-            "existingClaim": false,
+        "postgresql": {
             "enabled": false
 
+        },
+        "persistence": {
+            "staticData": {
+                "enabled": true
+            },
+            "mediaData": {
+                "enabled": true
+            }
         }
     }
 }
